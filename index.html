@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary SEO Meta Tags -->
+    <title>Free Ultra Image Compressor - Compress JPG, PNG, WebP Online</title>
+    <meta name="title" content="Free Ultra Image Compressor - Compress JPG, PNG, WebP Online">
+    <meta name="description" content="Compress heavy images up to 98% (e.g., 10MB to 100KB) without losing visual quality. Free, secure, client-side online image optimizer supporting JPG, PNG, WebP, and AVIF.">
+    <meta name="keywords" content="image compressor, reduce image size, 10mb to 100kb compressor, photo size reducer, convert webp, image optimizer, free online ocr and image tool">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="AI Web Tools">
+
+    <!-- Open Graph / Facebook SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krishna2006517.github.io/image-compressor/">
+    <meta property="og:title" content="Free Ultra Image Compressor - Reduce Image Size up to 98%">
+    <meta property="og:description" content="Instant client-side image compression. Reduce 10,000KB images down to 100KB with zero quality loss. Fast, free & 100% secure.">
+    <meta property="og:image" content="https://krishna2006517.github.io/image-compressor/og-image.jpg">
+
+    <!-- Twitter SEO -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Free Ultra Image Compressor - Reduce Image Size up to 98%">
+    <meta property="twitter:description" content="Compress JPG, PNG & WebP images up to 98% instantly in your browser. No file upload limits.">
+
+    <!-- Structured Data (JSON-LD Schema for Google Search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Ultra Image Compressor",
+      "url": "https://krishna2006517.github.io/image-compressor/",
+      "description": "Free web-based tool to compress images from MB to KB without quality loss.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>⚡ Ultra Image Compressor & Optimizer</h1>
+            <p>Compress Heavy Images (10MB → 100KB) instantly with 100% Privacy & Zero Quality Loss</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- UPLOAD SECTION -->
+        <section class="card upload-card">
+            <input type="file" id="image-file" accept="image/jpeg, image/png, image/webp" style="display: none;">
+            <label for="image-file" class="drop-zone" id="drop-area">
+                <span class="icon">🖼️</span>
+                <span id="file-label" class="label-title">Click or Drag & Drop Your Image Here</span>
+                <span class="label-sub">Supports JPG, PNG, WebP up to 50MB</span>
+            </label>
+        </section>
+
+        <!-- CONTROLS & SETTINGS (Hidden by default) -->
+        <section class="card controls-card" id="controls-section" style="display: none;">
+            <h2>Compression Settings</h2>
+            
+            <div class="control-group">
+                <label for="compression-preset">Target Compression Level:</label>
+                <select id="compression-preset">
+                    <option value="ultra">Ultra Extreme (10MB to ~100KB - Max Reduction)</option>
+                    <option value="high" selected>High Reduction (Up to 90% Smaller)</option>
+                    <option value="medium">Balanced Quality (Up to 70% Smaller)</option>
+                    <option value="custom">Custom Quality Slider</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="slider-group" style="display: none;">
+                <label for="quality-slider">Quality: <span id="quality-value">60</span>%</label>
+                <input type="range" id="quality-slider" min="5" max="95" value="60">
+            </div>
+
+            <div class="control-group">
+                <label for="output-format">Convert Output Format:</label>
+                <select id="output-format">
+                    <option value="image/webp" selected>WebP (Recommended for Best Compression & Web SEO)</option>
+                    <option value="image/jpeg">JPEG / JPG</option>
+                    <option value="image/png">PNG</option>
+                </select>
+            </div>
+
+            <button id="compress-btn" class="primary-btn">Compress Image Now</button>
+        </section>
+
+        <div id="status-box" class="status-box"></div>
+
+        <!-- PREVIEW & RESULTS SECTION -->
+        <section class="card result-card" id="result-section" style="display: none;">
+            <h2>Compression Results</h2>
+
+            <div class="comparison-container">
+                <div class="img-box">
+                    <h3>Original Image</h3>
+                    <img id="original-preview" src="" alt="Original Image Preview">
+                    <p class="img-meta">Size: <strong id="original-size">0 KB</strong></p>
+                </div>
+                <div class="img-box">
+                    <h3>Compressed Image</h3>
+                    <img id="compressed-preview" src="" alt="Compressed Image Preview">
+                    <p class="img-meta">Size: <strong id="compressed-size" class="highlight-size">0 KB</strong></p>
+                    <p class="savings-tag" id="savings-percent">Saved 0%</p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <a id="download-link" class="download-btn" href="#" download="compressed-image.webp">Download Compressed Image</a>
+            </div>
+        </section>
+
+        <!-- SEO ARTICLE & FAQ SECTION FOR GOOGLE RANKING -->
+        <section class="card content-card">
+            <h2>Why Use Ultra Online Image Compressor?</h2>
+            <p>Large image files degrade web page loading speed, negatively affecting your site's Google search rankings and user experience. Our browser-based image optimization utility compress files dynamically using web canvas rendering to reduce payload size without compromising visible clarity.</p>
+
+            <h3>Key Features:</h3>
+            <ul>
+                <li><strong>Extreme Size Reduction:</strong> Easily compress 10,000KB (10MB) images down to 100KB - 200KB for web readiness.</li>
+                <li><strong>100% Client-Side Privacy:</strong> All compression happens locally inside your browser. No images are uploaded to any external server.</li>
+                <li><strong>Next-Gen WebP Conversion:</strong> Convert old JPG/PNG formats to WebP for superior Google PageSpeed Insights performance.</li>
+                <li><strong>Zero Quality Loss Algorithm:</strong> Dynamic bicubic resampling preserves essential image details while removing excess metadata.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ultra Image Compressor. Built for High-Performance Web SEO.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
