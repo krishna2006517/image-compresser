@@ -4,33 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Primary SEO Meta Tags -->
-    <title>Free Ultra Image Compressor - Compress JPG, PNG, WebP Online</title>
-    <meta name="title" content="Free Ultra Image Compressor - Compress JPG, PNG, WebP Online">
-    <meta name="description" content="Compress heavy images up to 98% (e.g., 10MB to 100KB) without losing visual quality. Free, secure, client-side online image optimizer supporting JPG, PNG, WebP, and AVIF.">
-    <meta name="keywords" content="image compressor, reduce image size, 10mb to 100kb compressor, photo size reducer, convert webp, image optimizer, free online ocr and image tool">
+    <title>Free Ultra Image Compressor - Convert to PNG, JPG, WebP, PDF & Base64</title>
+    <meta name="title" content="Free Ultra Image Compressor - Convert to PNG, JPG, WebP, PDF & Base64">
+    <meta name="description" content="Compress heavy images up to 98% (10MB to 100KB) without quality loss. Export compressed photos as PNG, JPG, WebP, PDF, or Base64 code instantly. Fast, free & client-side.">
+    <meta name="keywords" content="image compressor, reduce image size, 10mb to 100kb compressor, photo to pdf converter, convert image to pdf, png compressor, jpg size reducer, webp converter, base64 image converter, free online image tool">
     <meta name="robots" content="index, follow">
     <meta name="author" content="AI Web Tools">
 
-    <!-- Open Graph / Facebook SEO -->
+    <!-- Open Graph SEO -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://krishna2006517.github.io/image-compressor/">
-    <meta property="og:title" content="Free Ultra Image Compressor - Reduce Image Size up to 98%">
-    <meta property="og:description" content="Instant client-side image compression. Reduce 10,000KB images down to 100KB with zero quality loss. Fast, free & 100% secure.">
-    <meta property="og:image" content="https://krishna2006517.github.io/image-compressor/og-image.jpg">
+    <meta property="og:title" content="Free Ultra Image Compressor & All-Format Converter">
+    <meta property="og:description" content="Compress heavy images up to 98% instantly. Download in any format: PNG, JPG, WebP, PDF, or Base64 code.">
 
-    <!-- Twitter SEO -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Free Ultra Image Compressor - Reduce Image Size up to 98%">
-    <meta property="twitter:description" content="Compress JPG, PNG & WebP images up to 98% instantly in your browser. No file upload limits.">
-
-    <!-- Structured Data (JSON-LD Schema for Google Search) -->
+    <!-- Structured Data (JSON-LD Schema) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Ultra Image Compressor",
+      "name": "Ultra Image Compressor & All-Format Exporter",
       "url": "https://krishna2006517.github.io/image-compressor/",
-      "description": "Free web-based tool to compress images from MB to KB without quality loss.",
+      "description": "Browser-based tool to compress images and export into PNG, JPG, WebP, PDF, or Base64 text formats.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "offers": {
@@ -41,14 +35,16 @@
     }
     </script>
 
+    <!-- jsPDF Library for Client-Side PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="header-content">
-            <h1>⚡ Ultra Image Compressor & Optimizer</h1>
-            <p>Compress Heavy Images (10MB → 100KB) instantly with 100% Privacy & Zero Quality Loss</p>
+            <h1>⚡ Ultra Image Compressor & Multi-Format Exporter</h1>
+            <p>Compress Heavy Images (10MB → 100KB) & Download as PNG, JPG, WebP, PDF or Base64</p>
         </div>
     </header>
 
@@ -59,13 +55,13 @@
             <label for="image-file" class="drop-zone" id="drop-area">
                 <span class="icon">🖼️</span>
                 <span id="file-label" class="label-title">Click or Drag & Drop Your Image Here</span>
-                <span class="label-sub">Supports JPG, PNG, WebP up to 50MB</span>
+                <span class="label-sub">Supports PNG, JPG, WebP up to 50MB</span>
             </label>
         </section>
 
-        <!-- CONTROLS & SETTINGS (Hidden by default) -->
+        <!-- CONTROLS SECTION -->
         <section class="card controls-card" id="controls-section" style="display: none;">
-            <h2>Compression Settings</h2>
+            <h2>Compression & Export Settings</h2>
             
             <div class="control-group">
                 <label for="compression-preset">Target Compression Level:</label>
@@ -82,21 +78,25 @@
                 <input type="range" id="quality-slider" min="5" max="95" value="60">
             </div>
 
+            <!-- ALL DOWNLOAD FORMATS IN DROPDOWN -->
             <div class="control-group">
-                <label for="output-format">Convert Output Format:</label>
-                <select id="output-format">
-                    <option value="image/webp" selected>WebP (Recommended for Best Compression & Web SEO)</option>
-                    <option value="image/jpeg">JPEG / JPG</option>
-                    <option value="image/png">PNG</option>
+                <label for="download-format-select">Select Download Output Format:</label>
+                <select id="download-format-select">
+                    <option value="png">PNG Image (.png)</option>
+                    <option value="jpg">JPG / JPEG Image (.jpg)</option>
+                    <option value="webp" selected>WebP Image (.webp - Best Compression & SEO)</option>
+                    <option value="pdf">PDF Document (.pdf)</option>
+                    <option value="base64">Base64 Text File (.txt - For Developers)</option>
+                    <option value="html">HTML Img Tag (.html)</option>
                 </select>
             </div>
 
-            <button id="compress-btn" class="primary-btn">Compress Image Now</button>
+            <button id="compress-btn" class="primary-btn">Compress & Generate File</button>
         </section>
 
         <div id="status-box" class="status-box"></div>
 
-        <!-- PREVIEW & RESULTS SECTION -->
+        <!-- RESULTS SECTION -->
         <section class="card result-card" id="result-section" style="display: none;">
             <h2>Compression Results</h2>
 
@@ -114,22 +114,22 @@
                 </div>
             </div>
 
-            <div class="btn-group">
-                <a id="download-link" class="download-btn" href="#" download="compressed-image.webp">Download Compressed Image</a>
+            <div class="download-action">
+                <button id="execute-download-btn" class="download-btn">📥 Download File Now</button>
             </div>
         </section>
 
-        <!-- SEO ARTICLE & FAQ SECTION FOR GOOGLE RANKING -->
+        <!-- SEO ARTICLE SECTION FOR GOOGLE RANKING -->
         <section class="card content-card">
-            <h2>Why Use Ultra Online Image Compressor?</h2>
-            <p>Large image files degrade web page loading speed, negatively affecting your site's Google search rankings and user experience. Our browser-based image optimization utility compress files dynamically using web canvas rendering to reduce payload size without compromising visible clarity.</p>
+            <h2>Why Use Ultra Online Image Compressor & Multi-Format Exporter?</h2>
+            <p>Heavy image files degrade site load speeds, negatively impacting Google Search Console metrics and overall user engagement. Our browser-native utility compresses high-density photos down to 100KB with zero server overhead and allows immediate exporting into WebP, PNG, JPG, PDF, or developer-friendly Base64 structures.</p>
 
             <h3>Key Features:</h3>
             <ul>
-                <li><strong>Extreme Size Reduction:</strong> Easily compress 10,000KB (10MB) images down to 100KB - 200KB for web readiness.</li>
-                <li><strong>100% Client-Side Privacy:</strong> All compression happens locally inside your browser. No images are uploaded to any external server.</li>
-                <li><strong>Next-Gen WebP Conversion:</strong> Convert old JPG/PNG formats to WebP for superior Google PageSpeed Insights performance.</li>
-                <li><strong>Zero Quality Loss Algorithm:</strong> Dynamic bicubic resampling preserves essential image details while removing excess metadata.</li>
+                <li><strong>Extreme Size Reduction:</strong> Compress 10,000KB (10MB) raw images down to 100KB - 200KB effortlessly.</li>
+                <li><strong>All-In-One Dropdown Export:</strong> Seamlessly convert and download compressed outputs as PNG, JPG, WebP, PDF, Base64 String, or HTML tags.</li>
+                <li><strong>100% Client-Side Privacy:</strong> Zero file uploads to external servers. All operations execute inside your browser canvas engine.</li>
+                <li><strong>Optimized PageSpeed SEO:</strong> Modern WebP and compressed PDF outputs ensure maximum Google PageSpeed Insights optimization.</li>
             </ul>
         </section>
     </main>
