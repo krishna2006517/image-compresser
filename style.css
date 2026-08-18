@@ -123,9 +123,7 @@ select, input[type="range"] {
     transition: background 0.2s;
 }
 
-.primary-btn:hover {
-    background: #1d4ed8;
-}
+.primary-btn:hover { background: #1d4ed8; }
 
 .status-box {
     text-align: center;
@@ -134,7 +132,6 @@ select, input[type="range"] {
     margin-bottom: 15px;
 }
 
-/* Comparison View */
 .comparison-container {
     display: flex;
     gap: 20px;
@@ -169,9 +166,7 @@ select, input[type="range"] {
     font-size: 0.9rem;
 }
 
-.highlight-size {
-    color: #16a34a;
-}
+.highlight-size { color: #16a34a; }
 
 .savings-tag {
     display: inline-block;
@@ -184,40 +179,36 @@ select, input[type="range"] {
     margin-top: 6px;
 }
 
+.download-action {
+    margin-top: 20px;
+}
+
 .download-btn {
     display: block;
+    width: 100%;
     text-align: center;
     background: #16a34a;
     color: white;
-    text-decoration: none;
-    padding: 14px;
-    font-size: 1.05rem;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
     border-radius: 8px;
     font-weight: bold;
-    transition: background 0.2s;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
 }
 
-.download-btn:hover {
-    background: #15803d;
-}
+.download-btn:hover { background: #15803d; }
+.download-btn:active { transform: scale(0.99); }
 
 .content-card {
     line-height: 1.6;
     color: #334155;
 }
 
-.content-card h3 {
-    margin-top: 15px;
-    margin-bottom: 8px;
-}
-
-.content-card ul {
-    padding-left: 20px;
-}
-
-.content-card li {
-    margin-bottom: 8px;
-}
+.content-card h3 { margin-top: 15px; margin-bottom: 8px; }
+.content-card ul { padding-left: 20px; }
+.content-card li { margin-bottom: 8px; }
 
 footer {
     text-align: center;
