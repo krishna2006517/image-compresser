@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ======================================================== -->
+<!-- 1. Favicon (Browser Tab Logo) -->
+<!-- ======================================================== -->
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+
+<!-- ======================================================== -->
+<!-- 2. Google Search Engine Site Name & Logo Schema -->
+<!-- ======================================================== -->
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "WebSite",
+  "name" : "Ultra Image Compressor",
+  "alternateName": "UltraImgCompress",
+  "url" : "https://ultraimgcompress.giize.com/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ultra Image Compressor",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ultraimgcompress.giize.com/logo.png"
+    }
+  }
+}
+</script>
     <meta name="google-site-verification" content="-FKByEL9zA6Ju-7S8ozaJ2I5X-fMO2P-ikfi5eWA75o" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +70,10 @@
 
     <header>
         <div class="header-content">
-            <h1>⚡ Ultra Image Compressor & Multi-Format Exporter</h1>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px;">
+                <img src="logo.png" alt="Ultra Image Compressor Logo" width="45" height="45" style="object-fit: contain; border-radius: 6px;">
+                <h1 style="margin: 0;">Ultra Image Compressor & Multi-Format Exporter</h1>
+            </div>
             <p>Compress Heavy Images (10MB → 100KB) & Download as PNG, JPG, WebP, PDF or Base64</p>
         </div>
     </header>
